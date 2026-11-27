@@ -1,0 +1,2424 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VOYARA — Explore Beyond</title>
+
+    <link rel="stylesheet" href="./css/output.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+        }
+
+        html {
+            scroll-behavior: auto;
+        }
+
+        #experiences .experience-bg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        #experiences .experience-bg img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        /* =========================
+   RESPONSIVE FIXES — VOYARA
+========================= */
+
+        /* Prevent horizontal overflow */
+        html,
+        body {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: clip;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        /* Hero */
+        #hero {
+            min-height: 100vh;
+            min-height: 100svh;
+        }
+
+        @media (max-width: 767px) {
+
+            /* HERO */
+            #hero>header {
+                padding: 20px 20px;
+            }
+
+            #hero>header>a:first-child {
+                font-size: 21px;
+            }
+
+            #hero>div:nth-of-type(3) {
+                padding: 50px 22px 70px;
+            }
+
+            #hero .hero-title {
+                font-size: clamp(42px, 12vw, 64px);
+                line-height: 1.12;
+            }
+
+            #hero .hero-title+p {
+                max-width: 340px;
+                font-size: 13px;
+                line-height: 1.8;
+            }
+
+            #hero>div:last-child {
+                padding-left: 22px;
+                padding-right: 22px;
+            }
+
+            /* MOBILE NAVIGATION */
+            #mobile-menu {
+                top: 72px;
+                left: 0;
+                right: 0;
+                width: 100%;
+                padding: 25px 24px;
+                z-index: 50;
+            }
+
+            #mobile-menu a {
+                display: block;
+                padding: 8px 0;
+            }
+
+            /* DESTINATIONS */
+            #destinations {
+                padding: 75px 20px;
+            }
+
+            #destinations h2 {
+                font-size: clamp(34px, 9vw, 48px);
+            }
+
+            #destinations article {
+                width: 100%;
+                min-width: 0;
+            }
+
+            #destinations article>a>div {
+                height: clamp(220px, 65vw, 340px);
+            }
+
+            /* JOURNEY */
+            #journey {
+                overflow: hidden;
+            }
+
+            #journey .journey-intro {
+                min-height: auto;
+                padding: 100px 22px 65px;
+            }
+
+            #journey .journey-intro h2 {
+                font-size: clamp(38px, 10vw, 58px);
+            }
+
+            #journey .journey-track {
+                display: flex;
+                width: 100%;
+                overflow-x: auto;
+                overflow-y: hidden;
+                scroll-snap-type: x mandatory;
+                scroll-behavior: smooth;
+                -webkit-overflow-scrolling: touch;
+                overscroll-behavior-x: contain;
+                scrollbar-width: none;
+                touch-action: pan-x pan-y;
+            }
+
+            #journey .journey-track::-webkit-scrollbar {
+                display: none;
+            }
+
+            #journey .journey-panel {
+                position: relative;
+                flex: 0 0 100%;
+                width: 100%;
+                min-width: 100%;
+                min-height: clamp(520px, 76svh, 680px);
+                scroll-snap-align: start;
+                scroll-snap-stop: always;
+            }
+
+            #journey .journey-panel>img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            #journey .journey-panel .relative.z-10 {
+                padding: 26px 22px 35px;
+            }
+
+            #journey .journey-panel h3 {
+                font-size: clamp(34px, 9vw, 48px);
+            }
+
+            #journey .journey-panel p {
+                max-width: 310px;
+                font-size: 13px;
+            }
+
+            #journey .journey-mobile-controls {
+                padding: 22px 22px 40px;
+            }
+
+            #journey .journey-mobile-controls button {
+                width: 44px;
+                height: 44px;
+                flex-shrink: 0;
+            }
+
+            /* CURATED ESCAPES */
+            #curated-escapes {
+                padding: 85px 20px;
+            }
+
+            #curated-escapes h2 {
+                font-size: clamp(38px, 10vw, 56px);
+            }
+
+            #curated-escapes .mb-16 {
+                margin-bottom: 45px;
+            }
+
+            #curated-escapes .escape-card {
+                width: 100%;
+                min-width: 0;
+            }
+
+            #curated-escapes .escape-card>div:first-child {
+                aspect-ratio: 4 / 4.7;
+            }
+
+            #curated-escapes .escape-card h3 {
+                font-size: 28px;
+            }
+
+            #curated-escapes .curated-bottom {
+                margin-top: 55px;
+            }
+
+            /* FOOTER */
+            #footer .grid {
+                row-gap: 48px;
+            }
+
+            #footer .grid>div {
+                min-width: 0;
+            }
+
+            #footer .grid>div:first-child>div:nth-child(2) {
+                gap: 15px;
+            }
+
+            #footer .grid>div:first-child img {
+                width: 82px;
+                height: 82px;
+            }
+
+            #footer h2 {
+                font-size: clamp(42px, 11vw, 65px);
+            }
+
+            #footer a {
+                overflow-wrap: anywhere;
+            }
+
+            #footer .mt-20>div {
+                flex-wrap: wrap;
+                gap: 16px;
+            }
+        }
+
+        /* Small phones */
+        @media (max-width: 380px) {
+
+            #hero .hero-title {
+                font-size: 40px;
+            }
+
+            #journey .journey-panel h3 {
+                font-size: 32px;
+            }
+
+            #journey .journey-panel .relative.z-10 {
+                padding-left: 18px;
+                padding-right: 18px;
+            }
+
+            #footer .grid>div:first-child>div:nth-child(2) {
+                flex-direction: column;
+            }
+        }
+
+        /* Tablet adjustments */
+        @media (min-width: 768px) and (max-width: 1023px) {
+
+            #destinations {
+                padding-left: 32px;
+                padding-right: 32px;
+            }
+
+            #curated-escapes {
+                padding-left: 32px;
+                padding-right: 32px;
+            }
+
+            #footer .grid {
+                column-gap: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-[#f5f3ed] text-[#242820] overflow-x-hidden">
+
+    <!-- =========================
+         HERO SECTION
+    ========================== -->
+
+    <main>
+
+        <section id="hero" class="relative flex min-h-screen flex-col overflow-hidden">
+
+            <!-- Background Image -->
+
+            <div class="absolute inset-0">
+                <img src="assets/images/hero2.jpg" alt="Mountain landscape" class="h-full w-full object-cover">
+            </div>
+
+            <!-- Dark Overlay -->
+
+            <div class="absolute inset-0 bg-black/35"></div>
+
+
+            <!-- =========================
+                 HEADER
+            ========================== -->
+
+            <header class="relative z-20 flex items-center justify-between px-6 py-7 md:px-12 lg:px-16">
+
+                <!-- Logo -->
+
+                <a href="#hero" class="text-2xl font-semibold tracking-[0.2em] text-white">
+                    VOYARA
+                </a>
+
+
+                <!-- Desktop Navigation -->
+
+                <nav class="hidden items-center gap-10 md:flex">
+
+                    <a href="#hero" class="text-sm text-white/90 transition hover:text-[#d6bd91]">
+                        Home
+                    </a>
+
+                    <a href="#destinations" class="text-sm text-white/90 transition hover:text-[#d6bd91]">
+                        Destinations
+                    </a>
+
+                    <a href="#experiences" class="text-sm text-white/90 transition hover:text-[#d6bd91]">
+                        Experiences
+                    </a>
+
+                    <a href="#about" class="text-sm text-white/90 transition hover:text-[#d6bd91]">
+                        About
+                    </a>
+
+                </nav>
+
+
+                <!-- Header CTA -->
+
+                <a href="#explore"
+                    class="hidden items-center gap-3 border border-white/70 px-6 py-3 text-xs tracking-widest text-white transition hover:bg-white hover:text-[#242820] sm:inline-flex">
+                    LET'S EXPLORE
+
+                    <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+                </a>
+
+
+                <!-- Mobile Menu Button -->
+
+                <button id="menu-btn" type="button" aria-label="Open navigation menu" aria-expanded="false"
+                    class="text-white md:hidden">
+                    <i data-lucide="menu" class="h-6 w-6"></i>
+                </button>
+
+            </header>
+
+
+            <!-- Mobile Navigation -->
+
+            <nav id="mobile-menu"
+                class="absolute left-0 right-0 top-20 z-30 hidden flex-col gap-6 bg-[#242820] px-8 py-8 md:hidden">
+
+                <a href="#hero" class="text-sm text-white">Home</a>
+                <a href="#destinations" class="text-sm text-white">Destinations</a>
+                <a href="#experiences" class="text-sm text-white">Experiences</a>
+                <a href="#about" class="text-sm text-white">About</a>
+
+            </nav>
+
+
+            <!-- =========================
+                 HERO CONTENT
+            ========================== -->
+
+            <div
+                class="relative z-10 flex flex-1 flex-col items-center justify-center px-6 pb-20 text-center text-white">
+
+                <p class="mb-7 text-xs font-medium uppercase tracking-[0.4em] text-white/85 md:text-sm">
+                    Discover The Extraordinary
+                </p>
+
+
+                <h1 class="hero-title text-5xl leading-[1.15] md:text-7xl lg:text-8xl">
+
+                    Explore The
+                    <br>
+
+                    <span class="italic">World</span>
+
+                </h1>
+
+
+                <p class="mt-7 max-w-lg text-sm leading-7 text-white/80 md:text-base">
+
+                    Find your next adventure in the world's most breathtaking destinations.
+                    Travel beyond the ordinary.
+
+                </p>
+
+
+                <!-- Hero CTA -->
+
+                <a href="#explore"
+                    class="mt-10 inline-flex items-center gap-5 bg-[#d6bd91] px-8 py-4 text-xs font-semibold tracking-[0.15em] text-[#242820] transition duration-300 hover:bg-white">
+
+                    EXPLORE NOW
+
+                    <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+
+                </a>
+
+            </div>
+
+
+            <!-- =========================
+                 HERO FOOTER
+            ========================== -->
+
+            <div class="relative z-10 flex items-center justify-between px-6 pb-8 text-white md:px-12 lg:px-16">
+
+                <span class="text-xs tracking-widest text-white/80">
+                    01 / 04
+                </span>
+
+
+                <div class="hidden items-center gap-3 sm:flex">
+
+                    <i data-lucide="mouse" class="h-4 w-4"></i>
+
+                    <span class="text-[10px] tracking-[0.25em] text-white/80">
+                        SCROLL TO DISCOVER
+                    </span>
+
+                </div>
+
+
+                <span class="text-xs tracking-widest text-white/80">
+                    2026
+                </span>
+
+            </div>
+
+        </section>
+
+        <!-- =========================
+     SECTION 02: DESTINATIONS
+         ========================== -->
+
+        <section id="destinations" class="bg-[#f5f3ed] px-6 py-20 md:px-12 md:py-24 lg:px-16">
+            <div class="mx-auto max-w-[1280px]">
+
+                <!-- Section Label -->
+
+                <div class="mb-8 flex items-center justify-between">
+                    <p class="text-[10px] font-semibold tracking-[0.3em] text-[#9b8058]">
+                        01 / DESTINATIONS
+                    </p>
+
+                    <p class="hidden text-[10px] tracking-[0.25em] text-[#77776f] md:block">
+                        EXPLORE THE WORLD
+                    </p>
+                </div>
+
+
+                <!-- Section Introduction -->
+
+                <div class="mb-12 grid gap-5 md:grid-cols-2 md:items-end">
+
+                    <h2
+                        class="font-['Playfair_Display'] text-4xl leading-[1.15] text-[#242820] md:text-5xl lg:text-6xl">
+                        Find Your
+                        <span class="italic text-[#9b8058]">Next Escape</span>
+                    </h2>
+
+                    <div class="flex flex-col gap-4 md:items-end">
+
+                        <p class="max-w-sm text-sm leading-7 text-[#77776f] md:text-right">
+                            From peaceful mountain retreats to breathtaking coastal
+                            escapes, discover places that inspire you to see the world
+                            differently.
+                        </p>
+
+                        <a href="#all-destinations"
+                            class="group inline-flex w-fit items-center gap-3 border-b border-[#bca078] pb-2 text-[10px] font-semibold tracking-[0.15em] text-[#242820]">
+                            VIEW ALL DESTINATIONS
+
+                            <i data-lucide="arrow-up-right"
+                                class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+
+                <!-- Asymmetric Destination Grid -->
+
+                <div class="grid grid-cols-1 items-start gap-x-8 gap-y-10 md:grid-cols-12">
+
+
+                    <!-- 01: DOLOMITES -->
+
+                    <article class="group md:col-span-7">
+
+                        <a href="#dolomites" class="block">
+
+                            <div class="relative h-[240px] w-full overflow-hidden sm:h-[280px] lg:h-[320px]">
+
+                                <img src="./assets/images/destination-dolomites.jpg"
+                                    alt="Dolomites mountain landscape in Italy" loading="lazy"
+                                    class="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105">
+
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/5 to-transparent">
+                                </div>
+
+                                <div
+                                    class="absolute bottom-0 left-0 flex w-full items-end justify-between p-5 text-white md:p-6">
+
+                                    <div>
+                                        <p class="mb-2 text-[10px] tracking-[0.2em] text-white/80">
+                                            ITALY · EUROPE
+                                        </p>
+
+                                        <h3 class="font-['Playfair_Display'] text-2xl md:text-3xl">
+                                            Dolomites
+                                        </h3>
+                                    </div>
+
+
+                                    <span
+                                        class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/70 text-white transition-all duration-300 group-hover:bg-white group-hover:text-[#242820]">
+                                        <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+                                    </span>
+
+
+                                </div>
+
+                            </div>
+
+                        </a>
+
+                        <p class="mt-3 text-[9px] tracking-[0.2em] text-[#9a978e]">
+                            01 — MOUNTAIN ESCAPE
+                        </p>
+
+                    </article>
+
+
+                    <!-- 02: AMALFI COAST -->
+
+                    <article class="group md:col-span-4 md:col-start-9 md:mt-12">
+
+                        <a href="#amalfi" class="block">
+
+                            <div class="relative h-[230px] w-full overflow-hidden sm:h-[260px] lg:h-[280px]">
+
+                                <img src="./assets/images/destination-amalfi.jpg" alt="Amalfi Coast in Italy"
+                                    loading="lazy"
+                                    class="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105">
+
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/5 to-transparent">
+                                </div>
+
+                                <div
+                                    class="absolute bottom-0 left-0 flex w-full items-end justify-between p-4 text-white">
+
+                                    <div>
+                                        <p class="mb-2 text-[9px] tracking-[0.2em] text-white/80">
+                                            ITALY · COASTAL
+                                        </p>
+
+                                        <h3 class="font-['Playfair_Display'] text-xl">
+                                            Amalfi Coast
+                                        </h3>
+                                    </div>
+
+
+                                    <span
+                                        class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/70 text-white transition-all duration-300 group-hover:bg-white group-hover:text-[#242820]">
+                                        <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </a>
+
+                        <p class="mt-3 text-[9px] tracking-[0.2em] text-[#9a978e]">
+                            02 — COASTAL ESCAPE
+                        </p>
+
+                    </article>
+
+
+                    <!-- Editorial Text -->
+
+                    <div class="hidden md:col-span-4 md:col-start-2 md:flex md:flex-col md:justify-center md:py-6">
+
+                        <span class="mb-5 h-px w-10 bg-[#bca078]"></span>
+
+                        <h3 class="font-['Playfair_Display'] text-2xl leading-snug text-[#242820] lg:text-3xl">
+                            The world is waiting for you.
+                        </h3>
+
+                        <p class="mt-3 max-w-xs text-xs leading-7 text-[#77776f]">
+                            Find the places that make every journey unforgettable.
+                        </p>
+
+                    </div>
+
+
+                    <!-- 03: BALI -->
+
+                    <article class="group md:col-span-5 md:col-start-7 md:mt-4">
+
+                        <a href="#bali" class="block">
+
+                            <div class="relative h-[220px] w-full overflow-hidden sm:h-[260px] lg:h-[280px]">
+
+                                <img src="./assets/images/destination-bali.jpg" alt="Tropical landscape in Bali"
+                                    loading="lazy"
+                                    class="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105">
+
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/5 to-transparent">
+                                </div>
+
+                                <div
+                                    class="absolute bottom-0 left-0 flex w-full items-end justify-between p-5 text-white">
+
+                                    <div>
+                                        <p class="mb-2 text-[9px] tracking-[0.2em] text-white/80">
+                                            INDONESIA · TROPICAL
+                                        </p>
+
+                                        <h3 class="font-['Playfair_Display'] text-2xl">
+                                            Bali
+                                        </h3>
+                                    </div>
+
+
+                                    <span
+                                        class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/70 text-white transition-all duration-300 group-hover:bg-white group-hover:text-[#242820]">
+                                        <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </a>
+
+                        <p class="mt-3 text-[9px] tracking-[0.2em] text-[#9a978e]">
+                            03 — TROPICAL ESCAPE
+                        </p>
+
+                    </article>
+
+
+                    <!-- Mobile Editorial Text -->
+
+                    <div class="flex flex-col gap-3 md:hidden">
+
+                        <span class="mb-2 h-px w-10 bg-[#bca078]"></span>
+
+                        <h3 class="font-['Playfair_Display'] text-2xl text-[#242820]">
+                            The world is waiting for you.
+                        </h3>
+
+                        <p class="max-w-sm text-xs leading-7 text-[#77776f]">
+                            Find the places that make every journey unforgettable.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+
+        <!-- =========================
+     SECTION 04 — THE JOURNEY
+========================= -->
+
+        <section id="journey" class="relative overflow-x-clip bg-[#111713] text-white">
+
+            <!-- SECTION INTRO -->
+
+            <div
+                class="journey-intro relative z-10 flex min-h-[65vh] flex-col justify-center px-6 py-24 md:px-12 lg:px-20">
+
+                <span class="mb-6 text-[10px] tracking-[0.4em] text-[#c4a77d] md:text-xs">
+                    THE VOYARA EXPERIENCE
+                </span>
+
+                <h2 class="max-w-5xl text-5xl font-light leading-[1.1] tracking-[-0.04em] md:text-7xl lg:text-8xl">
+                    EVERY JOURNEY
+                    <span class="block font-serif italic text-[#c4a77d]">
+                        HAS A STORY.
+                    </span>
+                </h2>
+
+                <div class="mt-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+
+                    <p class="max-w-md text-sm leading-7 text-white/55 md:text-base">
+                        Beyond destinations, beyond expectations.
+                        Discover a world of extraordinary moments
+                        crafted just for you.
+                    </p>
+
+                    <span class="flex items-center gap-3 text-[10px] tracking-[0.25em] text-white/50">
+                        <i data-lucide="arrow-down" class="h-4 w-4"></i>
+                        SCROLL TO EXPLORE
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- HORIZONTAL JOURNEY TRACK -->
+
+            <div
+                class="journey-track relative flex w-full flex-row snap-x snap-mandatory overflow-x-auto overflow-y-hidden scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:w-max md:overflow-visible md:snap-none md:scroll-auto">
+
+                <!-- PANEL 01 -->
+
+                <article
+                    class="journey-panel group relative flex min-h-[650px] min-w-full shrink-0 snap-start items-end overflow-hidden md:min-h-screen md:min-w-0 md:w-screen">
+
+                    <img src="assets/images/yatch.jpg" alt="Luxury Mediterranean escape"
+                        class="journey-image absolute inset-0 h-full w-full object-cover object-center">
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#101713]/90 via-[#101713]/20 to-transparent">
+                    </div>
+
+                    <div class="relative z-10 w-full p-8 md:p-10 lg:p-14">
+
+                        <div class="mb-8 flex items-center justify-between">
+                            <span class="text-xs tracking-[0.3em] text-[#c4a77d]">01 / 03</span>
+
+                            <span
+                                class="flex h-11 w-11 items-center justify-center rounded-full border border-white/50">
+                                <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+                            </span>
+                        </div>
+
+                        <span class="mb-4 block text-[10px] tracking-[0.35em] text-white/60">
+                            ESCAPE
+                        </span>
+
+                        <h3
+                            class="max-w-md text-4xl font-light leading-tight tracking-[-0.03em] md:text-5xl lg:text-6xl">
+                            FIND YOUR
+                            <span class="block font-serif italic text-[#d4b58a]">
+                                STILLNESS.
+                            </span>
+                        </h3>
+
+                        <p class="mt-6 max-w-sm text-sm leading-7 text-white/65">
+                            Leave the ordinary behind and discover
+                            a place where time moves differently.
+                        </p>
+
+                    </div>
+                </article>
+
+
+                <!-- PANEL 02 -->
+
+                <article
+                    class="journey-panel group relative flex min-h-[650px] min-w-full shrink-0 snap-start items-end overflow-hidden md:min-h-screen md:min-w-0 md:w-screen">
+
+                    <img src="assets/images/img5.jpg" alt="Luxury tropical villa in Bali"
+                        class="journey-image absolute inset-0 h-full w-full object-cover object-center">
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#101713]/90 via-[#101713]/20 to-transparent">
+                    </div>
+
+                    <div class="relative z-10 w-full p-8 md:p-10 lg:p-14">
+
+                        <div class="mb-8 flex items-center justify-between">
+                            <span class="text-xs tracking-[0.3em] text-[#c4a77d]">02 / 03</span>
+
+                            <span
+                                class="flex h-11 w-11 items-center justify-center rounded-full border border-white/50">
+                                <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+                            </span>
+                        </div>
+
+                        <span class="mb-4 block text-[10px] tracking-[0.35em] text-white/60">
+                            DISCOVER
+                        </span>
+
+                        <h3
+                            class="max-w-md text-4xl font-light leading-tight tracking-[-0.03em] md:text-5xl lg:text-6xl">
+                            LIVE THE
+                            <span class="block font-serif italic text-[#d4b58a]">
+                                UNEXPECTED.
+                            </span>
+                        </h3>
+
+                        <p class="mt-6 max-w-sm text-sm leading-7 text-white/65">
+                            Experience extraordinary places,
+                            hidden moments and unforgettable adventures.
+                        </p>
+
+                    </div>
+                </article>
+
+
+                <!-- PANEL 03 -->
+
+                <article
+                    class="journey-panel group relative flex min-h-[650px] min-w-full shrink-0 snap-start items-end overflow-hidden md:min-h-screen md:min-w-0 md:w-screen">
+
+                    <img src="assets/images/KEEP THE MOMENT.jpg" alt="Luxury dining experience by the ocean"
+                        class="journey-image absolute inset-0 h-full w-full object-cover object-center">
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#101713]/90 via-[#101713]/20 to-transparent">
+                    </div>
+
+                    <div class="relative z-10 w-full p-8 md:p-10 lg:p-14">
+
+                        <div class="mb-8 flex items-center justify-between">
+                            <span class="text-xs tracking-[0.3em] text-[#c4a77d]">03 / 03</span>
+
+                            <span
+                                class="flex h-11 w-11 items-center justify-center rounded-full border border-white/50">
+                                <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+                            </span>
+                        </div>
+
+                        <span class="mb-4 block text-[10px] tracking-[0.35em] text-white/60">
+                            REMEMBER
+                        </span>
+
+                        <h3
+                            class="max-w-md text-4xl font-light leading-tight tracking-[-0.03em] md:text-5xl lg:text-6xl">
+                            KEEP THE
+                            <span class="block font-serif italic text-[#d4b58a]">
+                                MOMENT.
+                            </span>
+                        </h3>
+
+                        <p class="mt-6 max-w-sm text-sm leading-7 text-white/65">
+                            Some journeys end. The memories
+                            stay with you forever.
+                        </p>
+
+                    </div>
+                </article>
+
+            </div>
+
+
+            <!-- MOBILE SLIDER CONTROLS -->
+
+            <div class="journey-mobile-controls flex items-center justify-between px-6 pb-12 pt-6 md:hidden">
+
+                <span class="text-[10px] tracking-[0.25em] text-white/50">
+                    <span id="journey-current" class="text-[#c4a77d]">01</span>
+                    <span class="mx-2">/</span>
+                    03
+                </span>
+
+                <div class="flex items-center gap-3">
+
+                    <button id="journey-prev" type="button" aria-label="Previous slide"
+                        class="flex h-11 w-11 items-center justify-center rounded-full border border-white/30 text-white transition-colors hover:bg-white hover:text-[#111713]">
+                        <i data-lucide="arrow-left" class="h-4 w-4"></i>
+                    </button>
+
+                    <button id="journey-next" type="button" aria-label="Next slide"
+                        class="flex h-11 w-11 items-center justify-center rounded-full border border-white/30 text-white transition-colors hover:bg-white hover:text-[#111713]">
+                        <i data-lucide="arrow-right" class="h-4 w-4"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+
+
+        <!-- =========================
+     SECTION 05 — CURATED ESCAPES
+========================= -->
+
+        <section id="curated-escapes"
+            class="relative overflow-hidden bg-[#f2efe8] px-6 py-28 text-[#202820] md:px-12 md:py-36 lg:px-20">
+
+            <div class="mx-auto max-w-[1400px]">
+
+                <!-- HEADER -->
+
+                <div class="mb-16 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+
+                    <div>
+                        <span class="mb-6 block text-[10px] tracking-[0.4em] text-[#a58a61]">
+                            BEYOND THE ORDINARY
+                        </span>
+
+                        <h2 class="text-5xl font-light leading-[1.1] tracking-[-0.05em] md:text-7xl">
+                            CURATED
+                            <span class="font-serif italic text-[#a58a61]">
+                                ESCAPES.
+                            </span>
+                        </h2>
+                    </div>
+
+                    <p class="max-w-sm text-sm leading-8 text-[#202820]/60">
+                        A collection of extraordinary places,
+                        thoughtfully chosen for those who seek
+                        something truly different.
+                    </p>
+
+                </div>
+
+
+                <!-- ESCAPE CARDS -->
+
+                <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+
+
+                    <!-- CARD 01 — SANTORINI -->
+
+                    <article class="escape-card group">
+
+                        <div class="relative mb-7 aspect-[4/5] overflow-hidden">
+
+                            <img src="assets/images/escape-switzerland.jpg" alt="Luxury Santorini escape" loading="lazy"
+                                class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105">
+
+                            <span class="absolute left-5 top-5 bg-[#f2efe8] px-4 py-2 text-[9px] tracking-[0.2em]">
+                                GREECE
+                            </span>
+
+                            <span
+                                class="absolute bottom-5 right-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#f2efe8] text-[#202820] transition-all duration-300 group-hover:bg-[#a58a61] group-hover:text-white">
+                                <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+                            </span>
+
+                        </div>
+
+                        <div class="flex items-start justify-between gap-4">
+
+                            <div>
+                                <span class="mb-3 block text-[9px] tracking-[0.25em] text-[#a58a61]">
+                                    THE AEGEAN COLLECTION
+                                </span>
+
+                                <h3 class="font-serif text-3xl italic">
+                                    Santorini
+                                </h3>
+                            </div>
+
+                            <span class="pt-2 text-xs text-[#202820]/50">
+                                01
+                            </span>
+
+                        </div>
+
+                        <p class="mt-4 text-xs leading-6 text-[#202820]/55">
+                            Whitewashed beauty above the endless blue.
+                        </p>
+
+                    </article>
+
+
+                    <!-- CARD 02 — THE ALPS -->
+
+                    <article class="escape-card group md:mt-16">
+
+                        <div class="relative mb-7 aspect-[4/5] overflow-hidden">
+
+                            <img src="assets/images/escape-santorini.jpg" alt="Swiss alpine luxury escape"
+                                loading="lazy"
+                                class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105">
+
+                            <span class="absolute left-5 top-5 bg-[#f2efe8] px-4 py-2 text-[9px] tracking-[0.2em]">
+                                SWITZERLAND
+                            </span>
+
+                            <span
+                                class="absolute bottom-5 right-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#f2efe8] text-[#202820] transition-all duration-300 group-hover:bg-[#a58a61] group-hover:text-white">
+                                <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+                            </span>
+
+                        </div>
+
+                        <div class="flex items-start justify-between gap-4">
+
+                            <div>
+                                <span class="mb-3 block text-[9px] tracking-[0.25em] text-[#a58a61]">
+                                    THE ALPINE COLLECTION
+                                </span>
+
+                                <h3 class="font-serif text-3xl italic">
+                                    The Alps
+                                </h3>
+                            </div>
+
+                            <span class="pt-2 text-xs text-[#202820]/50">
+                                02
+                            </span>
+
+                        </div>
+
+                        <p class="mt-4 text-xs leading-6 text-[#202820]/55">
+                            Find stillness in the heart of the mountains.
+                        </p>
+
+                    </article>
+
+
+                    <!-- CARD 03 — MALDIVES -->
+
+                    <article class="escape-card group">
+
+                        <div class="relative mb-7 aspect-[4/5] overflow-hidden">
+
+                            <img src="assets/images/escape-maldives.jpg" alt="Maldives overwater luxury villa"
+                                loading="lazy"
+                                class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105">
+
+                            <span class="absolute left-5 top-5 bg-[#f2efe8] px-4 py-2 text-[9px] tracking-[0.2em]">
+                                MALDIVES
+                            </span>
+
+                            <span
+                                class="absolute bottom-5 right-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#f2efe8] text-[#202820] transition-all duration-300 group-hover:bg-[#a58a61] group-hover:text-white">
+                                <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+                            </span>
+
+                        </div>
+
+                        <div class="flex items-start justify-between gap-4">
+
+                            <div>
+                                <span class="mb-3 block text-[9px] tracking-[0.25em] text-[#a58a61]">
+                                    THE ISLAND COLLECTION
+                                </span>
+
+                                <h3 class="font-serif text-3xl italic">
+                                    Maldives
+                                </h3>
+                            </div>
+
+                            <span class="pt-2 text-xs text-[#202820]/50">
+                                03
+                            </span>
+
+                        </div>
+
+                        <p class="mt-4 text-xs leading-6 text-[#202820]/55">
+                            A private world surrounded by turquoise waters.
+                        </p>
+
+                    </article>
+
+                </div>
+
+
+                <!-- BOTTOM LINK -->
+
+                <div
+                    class="curated-bottom mt-20 flex flex-col items-start justify-between gap-6 border-t border-[#202820]/20 pt-8 md:flex-row md:items-center">
+
+                    <p class="font-serif text-2xl italic text-[#a58a61]">
+                        Somewhere extraordinary is waiting.
+                    </p>
+
+                    <a href="#destinations" class="group inline-flex items-center gap-4 text-[10px] tracking-[0.25em]">
+
+                        DISCOVER MORE
+
+                        <i data-lucide="arrow-up-right"
+                            class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+     FOOTER — VOYARA
+========================= -->
+
+        <footer id="footer" class="relative overflow-hidden bg-[#111713] text-[#f2efe8]">
+
+            <!-- TOP CTA -->
+
+            <div class="border-b border-white/10 px-6 py-20 md:px-12 md:py-28">
+
+                <div class="mx-auto max-w-7xl">
+
+                    <span class="mb-6 block text-[10px] uppercase tracking-[0.35em] text-[#bca078]">
+                        Your next destination starts here
+                    </span>
+
+                    <h2 class="max-w-5xl font-serif text-5xl leading-[1.05] tracking-tight sm:text-6xl md:text-8xl">
+                        THE WORLD
+                        <span class="block text-[#bca078]">IS YOURS.</span>
+                    </h2>
+
+                    <div class="mt-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+
+                        <p class="max-w-md text-sm leading-7 text-white/50">
+                            Discover extraordinary destinations, unforgettable experiences
+                            and journeys designed to stay with you forever.
+                        </p>
+
+                        <a href="mailto:hello@voyara.com"
+                            class="group inline-flex w-fit items-center gap-5 border-b border-[#bca078] pb-3 text-xs uppercase tracking-[0.2em] transition-colors hover:text-[#bca078]">
+
+                            Start Your Journey
+
+                            <i data-lucide="arrow-up-right"
+                                class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
+                            </i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- MAIN FOOTER -->
+
+            <div class="mx-auto max-w-7xl px-6 py-16 md:px-12 md:py-20">
+
+                <div class="grid grid-cols-1 gap-14 md:grid-cols-12 md:gap-10">
+
+
+                    <!-- PERSONAL PROFILE -->
+
+                    <div class="md:col-span-5">
+
+                        <span class="mb-7 block text-[10px] uppercase tracking-[0.3em] text-[#bca078]">
+                            Behind the experience
+                        </span>
+
+                        <div class="flex items-start gap-5">
+
+                            <!-- PROFILE IMAGE -->
+
+                            <div
+                                class="h-24 w-24 shrink-0 overflow-hidden rounded-full border border-white/15 bg-white/5 md:h-28 md:w-28">
+
+                                <img src="assets/images/IMG_6151.jpg" alt="Your profile photo"
+                                    class="h-full w-full object-cover" loading="lazy">
+
+                            </div>
+
+
+                            <!-- PERSONAL INFORMATION -->
+
+                            <div class="pt-1">
+
+                                <h3 class="font-serif text-2xl">
+                                    YOUR NAME
+                                </h3>
+
+                                <p class="mt-2 text-[11px] uppercase tracking-[0.2em] text-[#bca078]">
+                                    Designer & Creator
+                                </p>
+
+                                <p class="mt-4 max-w-xs text-sm leading-7 text-white/45">
+                                    A little introduction about yourself.
+                                    Your passion, creativity and the story behind your work.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- PERSONAL CONTACT -->
+
+                        <div class="mt-9 space-y-4">
+
+                            <a href="mailto:setare.heydarvand@gmail.com"
+                                class="group flex w-fit items-center gap-3 text-sm text-white/55 transition-colors hover:text-[#bca078]">
+
+                                <i data-lucide="mail" class="h-4 w-4 text-[#bca078]"></i>
+
+                                your@email.com
+
+                            </a>
+
+
+                            <a href="https://github.com/setare-heydarvand-web" target="_blank" rel="noopener noreferrer"
+                                class="group flex w-fit items-center gap-3 text-sm text-white/55 transition-colors hover:text-[#bca078]">
+
+                                <i data-lucide="github" class="h-4 w-4 text-[#bca078]"></i>
+
+                                GitHub
+
+                                <i data-lucide="arrow-up-right" class="h-3 w-3"></i>
+
+                            </a>
+
+
+                            <a href="https://www.linkedin.com/in/setare-heydarvand-web/" target="_blank"
+                                rel="noopener noreferrer"
+                                class="group flex w-fit items-center gap-3 text-sm text-white/55 transition-colors hover:text-[#bca078]">
+
+                                <i data-lucide="linkedin" class="h-4 w-4 text-[#bca078]"></i>
+
+                                LinkedIn
+
+                                <i data-lucide="arrow-up-right" class="h-3 w-3"></i>
+
+                            </a>
+
+
+                            <a href="https://www.instagram.com/setareheydarvand_web/" target="_blank"
+                                rel="noopener noreferrer"
+                                class="group flex w-fit items-center gap-3 text-sm text-white/55 transition-colors hover:text-[#bca078]">
+
+                                <i data-lucide="instagram" class="h-4 w-4 text-[#bca078]"></i>
+
+                                Instagram
+
+                                <i data-lucide="arrow-up-right" class="h-3 w-3"></i>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- VOYARA BRAND -->
+
+                    <div class="md:col-span-3">
+
+                        <span class="mb-7 block text-[10px] uppercase tracking-[0.3em] text-[#bca078]">
+                            Explore
+                        </span>
+
+                        <a href="#hero" class="mb-5 inline-block font-serif text-4xl tracking-[0.12em]">
+                            VOYARA<span class="text-[#bca078]">.</span>
+                        </a>
+
+                        <p class="max-w-xs text-sm leading-7 text-white/40">
+                            A world of extraordinary places,
+                            curated experiences and timeless journeys.
+                        </p>
+
+                        <div class="mt-8 space-y-4 text-sm text-white/55">
+
+                            <a href="#destinations" class="block transition-colors hover:text-[#bca078]">
+                                Destinations
+                            </a>
+
+                            <a href="#experiences" class="block transition-colors hover:text-[#bca078]">
+                                Experiences
+                            </a>
+
+                            <a href="#journey" class="block transition-colors hover:text-[#bca078]">
+                                The Journey
+                            </a>
+
+                            <a href="#curated-escapes" class="block transition-colors hover:text-[#bca078]">
+                                Curated Escapes
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CONTACT / CONNECT -->
+
+                    <div class="md:col-span-4">
+
+                        <span class="mb-7 block text-[10px] uppercase tracking-[0.3em] text-[#bca078]">
+                            Connect with Voyara
+                        </span>
+
+                        <p class="mb-7 max-w-sm text-sm leading-7 text-white/45">
+                            Have a question, a collaboration idea or a journey in mind?
+                            We'd love to hear from you.
+                        </p>
+
+                        <a href="mailto:hello@voyara.com"
+                            class="group inline-flex items-center gap-3 border-b border-white/20 pb-3 text-base transition-colors hover:border-[#bca078] hover:text-[#bca078]">
+
+                            hello@voyara.com
+
+                            <i data-lucide="arrow-up-right"
+                                class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
+                            </i>
+
+                        </a>
+
+
+                        <!-- SOCIAL LINKS -->
+
+                        <div class="mt-9 flex items-center gap-5">
+
+                            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"
+                                aria-label="Instagram" class="text-white/45 transition-colors hover:text-[#bca078]">
+
+                                <i data-lucide="instagram" class="h-5 w-5"></i>
+
+                            </a>
+
+
+                            <a href="https://www.pinterest.com/" target="_blank" rel="noopener noreferrer"
+                                aria-label="Pinterest" class="text-white/45 transition-colors hover:text-[#bca078]">
+
+                                <i data-lucide="pin" class="h-5 w-5"></i>
+
+                            </a>
+
+
+                            <a href="mailto:hello@voyara.com" aria-label="Email"
+                                class="text-white/45 transition-colors hover:text-[#bca078]">
+
+                                <i data-lucide="mail" class="h-5 w-5"></i>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- BOTTOM BAR -->
+
+                <div
+                    class="mt-20 flex flex-col gap-6 border-t border-white/10 pt-7 md:flex-row md:items-center md:justify-between">
+
+                    <p class="text-[10px] uppercase tracking-[0.15em] text-white/30">
+                        © 2026 VOYARA. All rights reserved.
+                    </p>
+
+                    <div class="flex items-center gap-7 text-[10px] uppercase tracking-[0.15em] text-white/40">
+
+                        <a href="#hero" class="transition-colors hover:text-[#bca078]">
+                            Back to top
+                        </a>
+
+                        <span>Made with intention.</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </footer>
+
+
+    </main>
+
+    <!-- Animation Libraries -->
+    <!-- GSAP -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.1/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.1/dist/ScrollTrigger.min.js"></script>
+
+    <!-- Lenis -->
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.28/dist/lenis.min.js"></script>
+
+    <script>
+
+
+        document.addEventListener("DOMContentLoaded", () => {
+
+            // =========================
+            // 1. INITIALIZATION
+            // =========================
+
+            if (window.lucide) {
+                window.lucide.createIcons();
+            }
+
+
+            // =========================
+            // 2. MOBILE NAVIGATION
+            // =========================
+
+            const menuButton = document.getElementById("menu-btn");
+            const mobileMenu = document.getElementById("mobile-menu");
+
+            if (menuButton && mobileMenu) {
+
+                menuButton.addEventListener("click", () => {
+
+                    const isOpen = !mobileMenu.classList.contains("hidden");
+
+                    mobileMenu.classList.toggle("hidden");
+
+                    menuButton.setAttribute(
+                        "aria-expanded",
+                        String(!isOpen)
+                    );
+
+                    menuButton.innerHTML = isOpen
+                        ? '<i data-lucide="menu" class="h-6 w-6"></i>'
+                        : '<i data-lucide="x" class="h-6 w-6"></i>';
+
+                    if (window.lucide) {
+                        window.lucide.createIcons();
+                    }
+
+                });
+
+
+                mobileMenu.querySelectorAll("a").forEach(link => {
+
+                    link.addEventListener("click", () => {
+
+                        mobileMenu.classList.add("hidden");
+
+                        menuButton.setAttribute("aria-expanded", "false");
+
+                        menuButton.innerHTML =
+                            '<i data-lucide="menu" class="h-6 w-6"></i>';
+
+                        if (window.lucide) {
+                            window.lucide.createIcons();
+                        }
+
+                    });
+
+                });
+
+            }
+
+
+            // =========================
+            // 3. CHECK LIBRARIES
+            // =========================
+
+            if (
+                !window.gsap ||
+                !window.ScrollTrigger ||
+                !window.Lenis
+            ) {
+
+                console.error(
+                    "Animation Error: GSAP, ScrollTrigger or Lenis is missing."
+                );
+
+                return;
+
+            }
+
+            const gsap = window.gsap;
+            const ScrollTrigger = window.ScrollTrigger;
+            const Lenis = window.Lenis;
+
+            gsap.registerPlugin(ScrollTrigger);
+
+
+            // =========================
+            // 4. LENIS SMOOTH SCROLL
+            // =========================
+
+            const lenis = new Lenis({
+
+                duration: 1.2,
+                smoothWheel: true,
+                wheelMultiplier: 0.9,
+                touchMultiplier: 1.5
+
+            });
+
+            lenis.on("scroll", ScrollTrigger.update);
+
+            gsap.ticker.add((time) => {
+                lenis.raf(time * 1000);
+            });
+
+            gsap.ticker.lagSmoothing(0);
+
+
+            // =========================
+            // 5. HERO ANIMATIONS
+            // =========================
+
+            const hero = document.querySelector("#hero");
+
+            if (hero) {
+
+                const heroImage = hero.querySelector(
+                    ":scope > div:first-child img"
+                );
+
+                const heroContent = hero.querySelector(
+                    ":scope > div:nth-of-type(3)"
+                );
+
+
+                // Hero image parallax
+
+                if (heroImage) {
+
+                    gsap.to(heroImage, {
+
+                        yPercent: 20,
+                        ease: "none",
+
+                        scrollTrigger: {
+
+                            trigger: hero,
+                            start: "top top",
+                            end: "bottom top",
+                            scrub: 1
+
+                        }
+
+                    });
+
+                }
+
+
+                // Hero content fade
+
+                if (heroContent) {
+
+                    gsap.to(heroContent, {
+
+                        y: -100,
+                        opacity: 0,
+                        ease: "none",
+
+                        scrollTrigger: {
+
+                            trigger: hero,
+                            start: "top top",
+                            end: "bottom top",
+                            scrub: 1
+
+                        }
+
+                    });
+
+                }
+
+            }
+
+
+            // =========================
+            // 6. DESTINATIONS ANIMATIONS
+            // =========================
+
+            const destinations = document.querySelector("#destinations");
+
+            if (destinations) {
+
+                const destinationHeading =
+                    destinations.querySelector("h2");
+
+                if (destinationHeading) {
+
+                    gsap.from(destinationHeading, {
+
+                        y: 50,
+                        opacity: 0,
+                        duration: 1,
+                        ease: "power3.out",
+
+                        scrollTrigger: {
+
+                            trigger: destinations,
+                            start: "top 80%",
+                            once: true
+
+                        }
+
+                    });
+
+                }
+
+
+                // Destination cards reveal
+
+                const destinationCards =
+                    destinations.querySelectorAll("article");
+
+                destinationCards.forEach((card, index) => {
+
+                    gsap.from(card, {
+
+                        y: 60,
+                        opacity: 0,
+                        duration: 0.9,
+                        delay: index * 0.12,
+                        ease: "power3.out",
+
+                        scrollTrigger: {
+
+                            trigger: card,
+                            start: "top 85%",
+                            once: true
+
+                        }
+
+                    });
+
+                });
+
+
+                // Destination image parallax
+
+                const destinationImages =
+                    destinations.querySelectorAll("article img");
+
+                destinationImages.forEach(image => {
+
+                    gsap.fromTo(
+
+                        image,
+
+                        {
+                            scale: 1.12,
+                            yPercent: -5
+                        },
+
+                        {
+
+                            scale: 1.12,
+                            yPercent: 5,
+                            ease: "none",
+
+                            scrollTrigger: {
+
+                                trigger: image,
+                                start: "top bottom",
+                                end: "bottom top",
+                                scrub: 1
+
+                            }
+
+                        }
+
+                    );
+
+                });
+
+            }
+
+
+            // =========================
+            // 7. EXPERIENCES ANIMATIONS
+            // =========================
+
+            const experienceSection =
+                document.querySelector("#experiences");
+
+            if (experienceSection) {
+
+                const experienceTitle =
+                    experienceSection.querySelector(".experience-title");
+
+                if (experienceTitle) {
+
+                    gsap.from(experienceTitle, {
+
+                        y: 100,
+                        opacity: 0,
+                        duration: 1.4,
+                        ease: "power4.out",
+
+                        scrollTrigger: {
+
+                            trigger: experienceSection,
+                            start: "top 70%",
+                            once: true
+
+                        }
+
+                    });
+
+                }
+
+
+                const experienceText =
+                    experienceSection.querySelectorAll(
+                        ".experience-subtitle, .experience-description, .experience-label, .experience-stats"
+                    );
+
+                if (experienceText.length > 0) {
+
+                    gsap.from(experienceText, {
+
+                        y: 35,
+                        opacity: 0,
+                        duration: 1,
+                        stagger: 0.15,
+                        ease: "power3.out",
+
+                        scrollTrigger: {
+
+                            trigger: experienceSection,
+                            start: "top 65%",
+                            once: true
+
+                        }
+
+                    });
+
+                }
+
+            }
+
+
+            // =========================
+            // 8. JOURNEY
+            // =========================
+
+            const journeySection =
+                document.querySelector("#journey");
+
+            if (journeySection) {
+
+                const journeyTrack =
+                    journeySection.querySelector(".journey-track");
+
+                const journeyPanels = Array.from(
+                    journeySection.querySelectorAll(".journey-panel")
+                );
+
+
+                if (journeyTrack && journeyPanels.length > 1) {
+
+                    const journeyMedia = gsap.matchMedia();
+
+
+                    // -------------------------
+                    // DESKTOP JOURNEY
+                    // -------------------------
+
+                    journeyMedia.add("(min-width: 768px)", () => {
+
+                        const getScrollDistance = () => {
+
+                            return Math.max(
+                                0,
+                                journeyTrack.scrollWidth - window.innerWidth
+                            );
+
+                        };
+
+
+                        // Panel initial states
+
+                        journeyPanels.forEach((panel, index) => {
+
+                            const image =
+                                panel.querySelector(".journey-image");
+
+                            const content =
+                                panel.querySelector(".relative.z-10");
+
+
+                            if (image) {
+
+                                gsap.set(image, {
+
+                                    scale: 1.15,
+                                    xPercent: -5
+
+                                });
+
+                            }
+
+
+                            if (content && index !== 0) {
+
+                                gsap.set(content, {
+
+                                    opacity: 0,
+                                    y: 45
+
+                                });
+
+                            }
+
+                        });
+
+
+                        // Main horizontal movement
+
+                        const horizontalTween = gsap.to(journeyTrack, {
+
+                            x: () => -getScrollDistance(),
+                            ease: "none",
+
+                            scrollTrigger: {
+
+                                id: "journey-horizontal",
+                                trigger: journeyTrack,
+                                start: "top top",
+                                end: () => "+=" + getScrollDistance(),
+                                pin: true,
+                                scrub: 1,
+                                anticipatePin: 1,
+                                invalidateOnRefresh: true
+
+                            }
+
+                        });
+
+
+                        // Animate each panel
+
+                        journeyPanels.forEach((panel, index) => {
+
+                            const content =
+                                panel.querySelector(".relative.z-10");
+
+                            const image =
+                                panel.querySelector(".journey-image");
+
+
+                            // Image parallax
+
+                            if (image) {
+
+                                gsap.to(image, {
+
+                                    xPercent: 5,
+                                    ease: "none",
+
+                                    scrollTrigger: {
+
+                                        trigger: panel,
+                                        containerAnimation: horizontalTween,
+                                        start: "left right",
+                                        end: "right left",
+                                        scrub: 1
+
+                                    }
+
+                                });
+
+                            }
+
+
+                            // Content reveal
+
+                            if (content && index !== 0) {
+
+                                gsap.to(content, {
+
+                                    opacity: 1,
+                                    y: 0,
+                                    duration: 0.7,
+                                    ease: "power3.out",
+
+                                    scrollTrigger: {
+
+                                        trigger: panel,
+                                        containerAnimation: horizontalTween,
+                                        start: "left 75%",
+                                        toggleActions: "play none none reverse"
+
+                                    }
+
+                                });
+
+                            }
+
+                        });
+
+
+                        requestAnimationFrame(() => {
+                            ScrollTrigger.refresh();
+                        });
+
+
+                        // Cleanup
+
+                        return () => {
+
+                            horizontalTween.scrollTrigger?.kill();
+                            horizontalTween.kill();
+
+                        };
+
+                    });
+
+
+                    // -------------------------
+                    // MOBILE JOURNEY
+                    // -------------------------
+
+                    journeyMedia.add("(max-width: 767px)", () => {
+
+                        const previousButton =
+                            document.getElementById("journey-prev");
+
+                        const nextButton =
+                            document.getElementById("journey-next");
+
+                        const currentNumber =
+                            document.getElementById("journey-current");
+
+
+                        let activeSlide = 0;
+                        let scrollFrame = null;
+                        let scrollTimeout = null;
+
+
+                        // Update counter and buttons
+
+                        const updateControls = () => {
+
+                            if (currentNumber) {
+
+                                currentNumber.textContent =
+                                    String(activeSlide + 1).padStart(2, "0");
+
+                            }
+
+
+                            if (previousButton) {
+
+                                const isFirst = activeSlide === 0;
+
+                                previousButton.disabled = isFirst;
+
+                                previousButton.style.opacity =
+                                    isFirst ? "0.35" : "1";
+
+                                previousButton.style.pointerEvents =
+                                    isFirst ? "none" : "auto";
+
+                            }
+
+
+                            if (nextButton) {
+
+                                const isLast =
+                                    activeSlide === journeyPanels.length - 1;
+
+                                nextButton.disabled = isLast;
+
+                                nextButton.style.opacity =
+                                    isLast ? "0.35" : "1";
+
+                                nextButton.style.pointerEvents =
+                                    isLast ? "none" : "auto";
+
+                            }
+
+                        };
+
+
+                        // Detect current slide using real screen position
+
+                        const detectActiveSlide = () => {
+
+                            const trackRect =
+                                journeyTrack.getBoundingClientRect();
+
+                            let closestIndex = 0;
+                            let smallestDistance = Infinity;
+
+
+                            journeyPanels.forEach((panel, index) => {
+
+                                const panelRect =
+                                    panel.getBoundingClientRect();
+
+                                const distance = Math.abs(
+                                    panelRect.left - trackRect.left
+                                );
+
+
+                                if (distance < smallestDistance) {
+
+                                    smallestDistance = distance;
+                                    closestIndex = index;
+
+                                }
+
+                            });
+
+
+                            if (activeSlide !== closestIndex) {
+
+                                activeSlide = closestIndex;
+                                updateControls();
+
+                            }
+
+                        };
+
+
+                        // Navigate to selected slide
+
+                        const goToSlide = (index) => {
+
+                            const targetIndex = Math.max(
+                                0,
+                                Math.min(index, journeyPanels.length - 1)
+                            );
+
+                            const targetPanel =
+                                journeyPanels[targetIndex];
+
+                            if (!targetPanel) return;
+
+
+                            activeSlide = targetIndex;
+                            updateControls();
+
+
+                            const trackRect =
+                                journeyTrack.getBoundingClientRect();
+
+                            const panelRect =
+                                targetPanel.getBoundingClientRect();
+
+
+                            const targetPosition =
+                                journeyTrack.scrollLeft +
+                                panelRect.left -
+                                trackRect.left;
+
+
+                            journeyTrack.scrollTo({
+
+                                left: targetPosition,
+                                behavior: "smooth"
+
+                            });
+
+                        };
+
+
+                        // Previous and next
+
+                        const handlePrevious = () => {
+                            goToSlide(activeSlide - 1);
+                        };
+
+                        const handleNext = () => {
+                            goToSlide(activeSlide + 1);
+                        };
+
+
+                        // Detect swipe and manual scrolling
+
+                        const handleTrackScroll = () => {
+
+                            if (scrollFrame !== null) {
+                                cancelAnimationFrame(scrollFrame);
+                            }
+
+                            scrollFrame = requestAnimationFrame(() => {
+
+                                detectActiveSlide();
+
+                                scrollFrame = null;
+
+                            });
+
+
+                            clearTimeout(scrollTimeout);
+
+                            scrollTimeout = setTimeout(() => {
+
+                                detectActiveSlide();
+
+                            }, 120);
+
+                        };
+
+
+                        // Mobile image and text animations
+
+                        journeyPanels.forEach((panel, index) => {
+
+                            const content =
+                                panel.querySelector(".relative.z-10");
+
+                            const image =
+                                panel.querySelector(".journey-image");
+
+
+                            if (image) {
+
+                                gsap.fromTo(
+
+                                    image,
+
+                                    {
+                                        scale: 1.12
+                                    },
+
+                                    {
+
+                                        scale: 1,
+                                        duration: 1.2,
+                                        delay: index === 0 ? 0.1 : 0
+
+                                    }
+
+                                );
+
+                            }
+
+
+                            if (content) {
+
+                                gsap.from(content, {
+
+                                    y: 45,
+                                    opacity: 0,
+                                    duration: 0.9,
+                                    delay: index === 0 ? 0.2 : 0,
+                                    ease: "power3.out"
+
+                                });
+
+                            }
+
+                        });
+
+
+                        // Button events
+
+                        previousButton?.addEventListener(
+                            "click",
+                            handlePrevious
+                        );
+
+                        nextButton?.addEventListener(
+                            "click",
+                            handleNext
+                        );
+
+
+                        // Track scroll event
+
+                        journeyTrack.addEventListener(
+                            "scroll",
+                            handleTrackScroll,
+                            { passive: true }
+                        );
+
+
+                        // Initial counter state
+
+                        detectActiveSlide();
+                        updateControls();
+
+
+                        // Cleanup when leaving mobile breakpoint
+
+                        return () => {
+
+                            if (scrollFrame !== null) {
+                                cancelAnimationFrame(scrollFrame);
+                            }
+
+                            clearTimeout(scrollTimeout);
+
+                            previousButton?.removeEventListener(
+                                "click",
+                                handlePrevious
+                            );
+
+                            nextButton?.removeEventListener(
+                                "click",
+                                handleNext
+                            );
+
+                            journeyTrack.removeEventListener(
+                                "scroll",
+                                handleTrackScroll
+                            );
+
+                        };
+
+                    });
+
+                }
+
+            }
+
+
+            // =========================
+            // 9. CURATED ESCAPES
+            // =========================
+
+            const curatedSection =
+                document.querySelector("#curated-escapes");
+
+            if (curatedSection) {
+
+                const curatedHeading =
+                    curatedSection.querySelector("h2");
+
+                const curatedDescription =
+                    curatedSection.querySelector(".mb-16 p");
+
+                const escapeCards =
+                    curatedSection.querySelectorAll(".escape-card");
+
+                const curatedBottom =
+                    curatedSection.querySelector(".curated-bottom");
+
+
+                // Heading reveal
+
+                if (curatedHeading) {
+
+                    gsap.from(curatedHeading, {
+
+                        y: 65,
+                        opacity: 0,
+                        duration: 1.1,
+                        ease: "power3.out",
+
+                        scrollTrigger: {
+
+                            trigger: curatedHeading,
+                            start: "top 85%",
+                            once: true
+
+                        }
+
+                    });
+
+                }
+
+
+                // Description reveal
+
+                if (curatedDescription) {
+
+                    gsap.from(curatedDescription, {
+
+                        y: 35,
+                        opacity: 0,
+                        duration: 1,
+                        delay: 0.15,
+                        ease: "power3.out",
+
+                        scrollTrigger: {
+
+                            trigger: curatedDescription,
+                            start: "top 85%",
+                            once: true
+
+                        }
+
+                    });
+
+                }
+
+
+                // Escape cards reveal
+
+                if (escapeCards.length > 0) {
+
+                    gsap.from(escapeCards, {
+
+                        y: 75,
+                        opacity: 0,
+                        stagger: 0.2,
+                        duration: 1.1,
+                        ease: "power3.out",
+
+                        scrollTrigger: {
+
+                            trigger: escapeCards[0],
+                            start: "top 85%",
+                            once: true
+
+                        }
+
+                    });
+
+                }
+
+
+                // Bottom link reveal
+
+                if (curatedBottom) {
+
+                    gsap.from(curatedBottom, {
+
+                        y: 35,
+                        opacity: 0,
+                        duration: 1,
+                        ease: "power2.out",
+
+                        scrollTrigger: {
+
+                            trigger: curatedBottom,
+                            start: "top 90%",
+                            once: true
+
+                        }
+
+                    });
+
+                }
+
+            }
+
+
+            // =========================
+            // 10. SCROLLTRIGGER REFRESH
+            // =========================
+
+            window.addEventListener("load", () => {
+
+                ScrollTrigger.refresh();
+
+            });
+
+
+            // Refresh when images finish loading
+
+            document.querySelectorAll("img").forEach(image => {
+
+                if (!image.complete) {
+
+                    image.addEventListener("load", () => {
+
+                        ScrollTrigger.refresh();
+
+                    }, { once: true });
+
+                }
+
+            });
+
+
+            requestAnimationFrame(() => {
+
+                ScrollTrigger.refresh();
+
+            });
+
+
+            // =========================
+            // 11. RESIZE HANDLING
+            // =========================
+
+            let resizeTimeout;
+
+            window.addEventListener("resize", () => {
+
+                clearTimeout(resizeTimeout);
+
+                resizeTimeout = setTimeout(() => {
+
+                    ScrollTrigger.refresh();
+
+                }, 200);
+
+            });
+
+
+            // =========================
+            // 12. READY
+            // =========================
+
+            console.log(
+                "VOYARA — All animations initialized successfully."
+            );
+
+        });
+
+    </script>
+
+
+</body>
+
+</html>
